@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hew.board.mapper.BoardMapper">
+
+	<insert id="create">
+		insert into error_report (title, error_code, solution, etc, hashtag)
+		values(#{title},#{error_code},#{solution},#{etc},#{hashtag})
+	</insert>
+
+	<select id="read" resultType="com.hew.board.domain.BoardVO">
+		select 
+			eno, title, error_code, solution, etc, hashtag, regdate
+		from 
+			error_report
+		where eno = #{eno}
+	</select>
+	
+	<update id="update">
+		update error_report set title = #{title}, error_code = #{error_code}, solution = #{solution}, etc = #{etc}, hashtag = #{hashtag}  
+		where eno = #{eno}
+	</update>
+
+	<delete id="delete">
+		delete from error_report where eno = #{eno}
+	</delete>
+	
+	<sql id="search">
+
+		<if test="searchType != null">
+
+			<if test="searchType == 'title'.toString()">
+
+				and title like CONCAT('%', #{keyword}, '%')
+
+			</if>
+
+			<if test="searchType == 'error_code'.toString()">
+
+				and error_code like CONCAT('%', #{keyword}, '%')
+
+			</if>
+
+		
+
+			<if test="searchType == 'all'.toString()">
+
+				and ( title like CONCAT('%', #{keyword}, '%')
+
+				OR
+
+				error_code like CONCAT('%', #{keyword}, '%')
+			</if>
+
+		</if>
+
+	</sql>
+	
+	<select id="listAll" resultType="com.hew.board.domain.BoardVO">
+	<![CDATA[
+		select
+			eno, title, error_code, solution, etc, hashtag, regdate
+		from
+			error_report
+		where eno > 0
+		
+		order by eno desc, regdate desc
+	]]>
+	</select>
+	
+	
+<!-- 	<select id="listSearch" resultType="com.hew.board.domain.BoardVO">
+	<![CDATA[
+		select
+			eno, title, error_code, solution, etc, hashtag, regdate
+		from
+			error_report
+		where eno > 0
+		order by eno desc, regdate desc
+	]]>
+	
+	<if test="searchType!=null">
+		<if test="searchType=='title'.toString()">
+			and title like CONCAT ('%',#{keyword},'%')
+		</if>
+	</if>
+	<![CDATA[
+		
+		order by eno desc
+	]]>
+	</select> -->
+</mapper>
