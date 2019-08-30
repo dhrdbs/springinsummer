@@ -71,7 +71,7 @@
                <ul class="list-unstyled">
                   <!-- 회원가입 -->
                   <a class="nav-link btn btn-sm btn-underline-secondary"
-                     href="/hew/register"><u>Register</u></a>
+                     href="/hew/member/register"><u>Register</u></a>
 
                   <li class="nav-item dropdown"><a
                      class="nav-link dropdown-toggle btn btn-sm button" href="#"

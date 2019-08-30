@@ -3,6 +3,7 @@ package com.hew.board.persistence;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import javax.inject.Inject;
 
@@ -46,12 +47,15 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public List<BoardVO> listSearch(String searchType,String keyword) throws Exception {
+	public List<BoardVO> listAll(String searchType,String searchWord) throws Exception {
 		// TODO Auto-generated method stub
-		
+		System.out.println("\nboardDAOimpl 시작");
+		System.out.println("searchType:"+searchType+"searchWord:"+searchWord);
 		Map<String,String>map=new HashMap<String, String>();
 		map.put("searchType",searchType);
-		map.put("keyword",keyword);
+		map.put("searchWord",searchWord);
+		System.out.println("마 이게 맵이다 :"+map);
+		System.out.println("boardDAOimpl 끝\n");
 		return session.selectList(namespace + ".listAll", map);
 	}
 

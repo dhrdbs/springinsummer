@@ -23,7 +23,7 @@ public interface BoardService {
 	
 	public List<BoardVO> listAll()throws Exception;
 	
-	public List<BoardVO> listSearch(String searchType,String keyword)throws Exception;
+	public List<BoardVO> listAll(String searchType,String searchWord)throws Exception;
 
 }
 

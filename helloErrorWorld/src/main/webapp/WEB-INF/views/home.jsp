@@ -57,7 +57,7 @@
                <ul class="list-unstyled">
                   <!-- 회원가입 -->
                   <a class="nav-link btn btn-sm btn-underline-secondary"
-                     href="/hew/register"><u>Register</u></a>
+                     href="/hew/member/register"><u>Register</u></a>
 
                   <li class="nav-item dropdown"><a
                      class="nav-link dropdown-toggle btn btn-sm button" href="#"
@@ -120,7 +120,7 @@
                      발생한 에러 내용을 저장하세요.<br> 앞으로 발생할 에러를 효율적으로 관리할 수 있도록 도와줍니다.
                   </p>
                   <p>
-                     <a class="btn button" href="/hew/write"
+                     <a class="btn button" href="/hew/error_report/write"
                         role="button">에러 기록하기 »</a>
                   </p>
                </div>

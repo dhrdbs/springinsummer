@@ -45,11 +45,12 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardVO> listSearch(String searchType,String keyword) throws Exception {
+	public List<BoardVO> listAll(String searchType,String searchWord) throws Exception {
 		// TODO Auto-generated method stub
-		List<BoardVO> list = null;
-		list = dao.listSearch(searchType,keyword);
-		return list;
+		System.out.println("\nboardservideimpl 시작");
+		System.out.println("\n1111111111111111"+searchType+",2222222222222222222222"+searchWord);
+		System.out.println("boardservideimpl 끝");
+		return dao.listAll(searchType, searchWord);
 		
 	}
 
